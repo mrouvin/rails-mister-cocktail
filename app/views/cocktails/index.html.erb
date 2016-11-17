@@ -1,0 +1,15 @@
+
+
+<div class="wrapper">
+  <div class="container">
+    <h1>List of cocktails</h1>
+    <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <ul class="list-unstyled">
+          <li><%= @cocktail.name  %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
