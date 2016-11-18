@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <div class="container padded">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
+        <div class="card text-center padded">
+          <h1><%= @cocktail.name %></h1>
+          <ul class="list-unstyled">
+            <% @cocktail.doses.each do |dose| %>
+              <li>
+                <%= dose.description %> of <%= dose.ingredient.name %>
+                <%= link_to dose_path(dose), method: :delete  do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="btn btn-primary">
+          <%= link_to "Add a dose", '#', class: "toggle-form" %>
+        </div>
+        <div class="btn btn-primary">
+          <%= link_to "Back to menu", cocktails_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper dose-form" style="display: none">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+        <%= render 'doses/form' %>
+      </div>
+    </div>
+  </div>
+</div>

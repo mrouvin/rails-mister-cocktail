@@ -1,14 +1,14 @@
-
-
 <div class="wrapper">
-  <div class="container">
-    <h1>List of cocktails</h1>
+  <div class="container padded">
     <div class="row">
-    <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <ul class="list-unstyled">
-          <li><%= @cocktail.name  %></li>
-        </ul>
+        <h1>List of cocktails</h1>
+        <% @cocktails.each do |cocktail| %>
+          <div class="card padded">
+            <%= cocktail.name %> <%= link_to "details", cocktail_path(cocktail) %>
+          </div>
+        <% end %>
+        <div class="btn btn-primary"><%= link_to "Create your own cocktail", new_cocktail_path %></div>
       </div>
     </div>
   </div>
